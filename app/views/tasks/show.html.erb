@@ -7,6 +7,11 @@
         <br>
         <section class="admin">
             <%= link_to "Edit", edit_task_path(@task), class: "button" %>
+            <%= link_to "Delete",
+            task_path(@task),
+            class: "button",
+            method: :delete,
+            data: { confirm: "This action will permanently delete the scan." } %>
         </section>
     </div>
 </section>
