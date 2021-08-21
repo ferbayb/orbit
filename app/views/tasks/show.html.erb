@@ -1,7 +1,7 @@
 <section class="event-details">
     <div class="details">
         <h2>
-            Viewing: <%= @task.address %>
+            <%= @task.address %>
         </h2>
         <hr>
         <br>
@@ -14,4 +14,15 @@
             data: { confirm: "This action will permanently delete the scan." } %>
         </section>
     </div>
+    <div id="showmap">
+        <iframe 
+            width="450" 
+            height="500" 
+            style="border:0" 
+            loading="lazy" 
+            allowfullscreen 
+            src= <%= @task.map_embed(@task.latitude, @task.longitude) %> >
+        </iframe>
+    </div>
+    <!-- <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=400x300&center=#{@task.latitude},#{@task.longitude}&key=AIzaSyBWcv3SgzJkW2biuy0ii1Tjf-EhCNzhYz8", alt: "Map" %> -->
 </section>

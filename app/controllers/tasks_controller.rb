@@ -35,8 +35,7 @@ class TasksController < ApplicationController
     end
 
     private
-
-    def task_params
-        params.require(:task).permit(:address, :description)
-    end
+        def task_params
+            params.require(:task).permit(:address, :description, :latitude, :longitude)
+        end
 end

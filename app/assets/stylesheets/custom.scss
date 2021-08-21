@@ -177,6 +177,7 @@ section.event {
 
 section.event-details {
 	@extend .row;
+	justify-content: space-between;
 
 	.image {
 		@extend .col-md-3, .text-left;
@@ -205,7 +206,7 @@ section.event-details {
 
   h3 {
 		margin-top: 1.5rem;
-    font-size: 1.25rem;
+    	font-size: 1.25rem;
 		color: $secondary-text-color;
 		font-weight: 300;
 	}
@@ -241,7 +242,6 @@ section.event-details {
 
 	img {
 		margin-top: 0.5rem;
-		height: 75px;
 	}
 
 	.register {
