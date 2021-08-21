@@ -1,2 +1,5 @@
 <h1> <%= @user.private_name %> </h1>
 <p>Find me in app/views/users/show.html.erb</p>
+<% @user_tasks.each do |t| %>
+    <%= link_to task.address, task_path %>
+<% end %>
