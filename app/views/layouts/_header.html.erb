@@ -1,8 +1,26 @@
 <header>
     <nav>
         <h1>Orb<span class="accent">it</span>.</h1>
-        <ul>
+        <ul class="left">
             <li> <%= link_to "Tasks", tasks_path %> </li>
+        </ul>
+        <ul class="right">
+            <% if user_signed_in? %>
+                <li>
+                    <%= link_to current_user.first_name, tasks_path %>
+                </li>
+                <li>
+                    <%= link_to "Sign Out", tasks_path, class: "button" %>
+                </li>
+            <% else %>
+                <li>
+                    <%= link_to "Register", tasks_path, class: "button" %>
+                </li>
+
+                <li>
+                    <%= link_to "Login", tasks_path, class: "button" %>
+                </li>
+            <% end %>
         </ul>
     </nav>
 </header>
