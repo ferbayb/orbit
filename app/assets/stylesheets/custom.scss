@@ -37,6 +37,10 @@ $secondary: $dark-gray;
 @import "bootstrap";
 
 // Custom CSS
+input#user_remember_me {
+	position: static;
+	margin-left: 0rem;
+}
 
 .content {
 	@extend .container;
@@ -336,7 +340,7 @@ section.user {
 			margin-top: 1rem;
 		}
 
-		.date {
+		.dates {
 			@extend .col-md-4, .text-right;
 			font-size: 1rem;
 			font-weight: 600;
@@ -442,13 +446,13 @@ form:not([class="button_to"]) {
 
 	input:not([type="checkbox"]):not([type="file"]):not([type="submit"]),
 	textarea,
-	select:not(.datetime) {
+	select:not(.date) {
 		@extend .form-control;
 		margin-bottom: 0.75rem;
 		width: 100%;
 	}
 
-	select.datetime {
+	select.date {
 		display: inline-block;
 		margin-bottom: 0.75rem;
 	}
@@ -461,7 +465,7 @@ form:not([class="button_to"]) {
 	input[type="checkbox"] {
 		@extend .form-check-input;
 		width: 20px;
-	  height: 20px;
+	  	height: 20px;
 	}
 
 	input[type="checkbox"] + label {
@@ -478,7 +482,6 @@ form:not([class="button_to"]) {
 
 	.checkboxes {
 		@extend .form-check;
-		margin-top: 1.5rem;
 	}
 
 	div.field_with_errors {
