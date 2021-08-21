@@ -126,7 +126,8 @@ section.event {
 	@extend .row;
 	margin-bottom: 1.5rem;
 	padding-bottom: 1em;
-	border-bottom: 1px dotted $border-color;
+	display: grid;
+	place-content: center;
 
 	&:nth-last-child(1) {
   	border-bottom: none;
@@ -383,9 +384,10 @@ footer {
 
 section.admin {
 	text-align: center;
-	margin: 3rem 0;
-	padding-top: 2rem;
+	padding: 2rem;
+	margin: 1rem 0 2rem 0;
 	border-top: 1px dashed $border-color;
+	border-bottom: 1px dashed $border-color;
 
 	&.no-rule {
 		border-top: none;
