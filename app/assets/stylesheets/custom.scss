@@ -1,7 +1,8 @@
 // Colors
 
-$black: #393939;
+$black: #212529;
 $off-white: #EDEDED;
+$ghost-white: #F8F8F8;
 $dark-gray: #666;
 $medium-gray: #6c757d;
 $light-gray: #c2c2c2;
@@ -10,13 +11,15 @@ $light-blue: lighten($blue, 40%);
 $orange: #E8890C;
 $yellow: #ffc107;
 $light-yellow: #FFC;
-$red: #dc3545;
+$red: #e34149;
+$dark-red: #520B0D;
+$light-red: lighten($red, 30%);
 
 // Custom Variables
 
 $secondary-text-color: $medium-gray;
 $accent-color: $orange;
-$secondary-link-color: $light-blue;
+$secondary-link-color: $off-white;
 $border-color: $light-gray;
 $error-color: $red;
 $error-background-color: $light-yellow;
@@ -26,7 +29,7 @@ $sold-out-color: $yellow;
 
 $body-color: $black;
 $body-bg: $off-white;
-$primary: $blue;
+$primary: $black;
 $secondary: $dark-gray;
 
 // Import Bootstrap Styles
@@ -42,7 +45,7 @@ $secondary: $dark-gray;
 // Header and Nav
 
 header {
-	background-color: $primary;
+	background-color: $black;
 	padding: 0.5rem;
 	margin-bottom: 3rem;
 
@@ -55,7 +58,7 @@ header {
 
 		a.button {
 			@extend .btn, .btn-outline-secondary;
-    }
+    	}
 
 		img {
 			height: 50px;
@@ -77,7 +80,7 @@ header {
 			li {
 				@extend .nav-item;
 				font-size: 1.1rem;
-        margin-right: 5px;
+        		margin-right: 5px;
 
 				a {
 				 @extend .nav-link;
@@ -107,8 +110,13 @@ header {
 
 	h1 {
 		margin-left: 1rem;
-		color: $light-blue;
+		margin-right: 5rem;
+		color: $ghost-white;
 		font-size: 2.5rem;
+	}
+
+	.accent {
+		color: $yellow;
 	}
 }
 
@@ -363,7 +371,7 @@ ul.registrations {
 // Footer
 
 footer {
-	background: $black;
+	background: $dark-red;
   color: $light-gray;
 	text-align: center;
 	margin-top: 3rem;

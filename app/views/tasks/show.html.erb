@@ -1,0 +1,12 @@
+<section class="event-details">
+    <div class="details">
+        <h2>
+            Viewing: <%= @task.address %>
+        </h2>
+        <hr>
+        <br>
+        <section class="admin">
+            <%= link_to "Edit", edit_task_path(@task), class: "button" %>
+        </section>
+    </div>
+</section>
