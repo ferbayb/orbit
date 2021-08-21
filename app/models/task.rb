@@ -7,8 +7,4 @@ class Task < ApplicationRecord
     def map_embed(lat, lon)
         "https://www.google.com/maps/embed/v1/place?q=#{lat}%2C#{lon}&key=AIzaSyBWcv3SgzJkW2biuy0ii1Tjf-EhCNzhYz8"
     end
-
-    def map_link(center)
-        "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=700x250&zoom=13&markers=size:mid%7Ccolor:0xe34149%7Clabel:%7C#{center}&key=AIzaSyBWcv3SgzJkW2biuy0ii1Tjf-EhCNzhYz8"
-    end
 end
