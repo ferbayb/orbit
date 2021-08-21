@@ -1,0 +1,10 @@
+<h3>Viewing All Tasks</h3>
+<hr>
+<br>
+<ul>
+    <% @tasks.each do |t| %>
+        <li>
+            <%= t.name %>
+        </li>
+    <% end %>
+</ul>
