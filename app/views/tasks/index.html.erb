@@ -1,10 +1,13 @@
-<h3>Viewing All Tasks</h3>
+<h2>Viewing All Tasks</h2>
 <hr>
 <br>
-<ul>
-    <% @tasks.each do |t| %>
-        <li>
-            <%= t.name %>
-        </li>
-    <% end %>
-</ul>
+
+<% @tasks.each do |t| %>
+    <section class="event">
+        <div class="summary">
+            <h4>
+                <%= t.name %>
+            </h4>
+        </div>
+    </section>
+<% end %>
