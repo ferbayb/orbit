@@ -16,16 +16,16 @@
                 </li>
 
                 <li>
-                    <%= link_to "Sign Out", tasks_path, class: "button" %>
+                    <%= link_to "Sign Out", destroy_user_session_path, class: "button", method: :delete %>
                 </li>
                 
             <% else %>
                 <li>
-                    <%= link_to "Register", tasks_path, class: "button" %>
+                    <%= link_to "Register", new_user_registration_path, class: "button" %>
                 </li>
 
                 <li>
-                    <%= link_to "Login", tasks_path, class: "button" %>
+                    <%= link_to "Login", new_user_session_path, class: "button" %>
                 </li>
             <% end %>
         </ul>
