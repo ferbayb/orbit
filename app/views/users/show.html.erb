@@ -1,5 +1,14 @@
-<h1> <%= @user.private_name %> </h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<% @user_tasks.each do |t| %>
-    <%= link_to task.address, task_path %>
+<h2> <%= @user.private_name %> </h2>
+<h5> Profile Information </h5>
+<hr>
+<%= "#{@user.age} years old." %><br>
+<%= "#{@user.email}"%><br>
+<%= "Joined Orbit #{time_ago_in_words(@user.created_at)} ago." %> <br><br>
+<h5>Active Listings</h5>
+<hr>
+<% @user.tasks.each do |t| %>
+    <%= link_to t.address, task_path %>
 <% end %>
+<section class="admin">
+  <%= link_to "Edit Profile", edit_user_registration_path, class: "button" %></p>
+</section>

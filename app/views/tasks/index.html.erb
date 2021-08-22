@@ -1,9 +1,4 @@
 <h2>All Tasks</h2>
-
-<section class="admin">
-    <%= link_to "Add New Task", new_task_path(@task), class: "button" %>
-</section>
-
 <% @tasks.each do |t| %>
     <section class="event">
         <div class="card" style="width: 35rem;">

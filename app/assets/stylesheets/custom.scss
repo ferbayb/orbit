@@ -44,6 +44,7 @@ input#user_remember_me {
 
 .content {
 	@extend .container;
+	padding-bottom: 3rem;
 }
 
 // Header and Nav
@@ -51,7 +52,7 @@ input#user_remember_me {
 header {
 	background-color: $black;
 	padding: 0.5rem;
-	margin-bottom: 3rem;
+	margin-bottom: 1.5rem;
 
 	nav {
 		@extend .navbar, .navbar-expand-md;
@@ -378,11 +379,14 @@ ul.registrations {
 
 footer {
 	background: $dark-red;
-  color: $light-gray;
+  	color: $light-gray;
 	text-align: center;
-	margin-top: 3rem;
-  padding-top: 2rem;
-	padding-bottom: 2rem;
+	margin-top: 1rem;
+  	padding-top: 0.75rem;
+	padding-bottom: 0.75rem;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 // Admin Section
@@ -391,8 +395,6 @@ section.admin {
 	text-align: center;
 	padding: 2rem;
 	margin: 1rem 0 2rem 0;
-	border-top: 1px dashed $border-color;
-	border-bottom: 1px dashed $border-color;
 
 	&.no-rule {
 		border-top: none;
