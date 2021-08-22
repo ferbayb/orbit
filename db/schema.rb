@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_21_201012) do
+ActiveRecord::Schema.define(version: 2021_08_22_103347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,9 +41,11 @@ ActiveRecord::Schema.define(version: 2021_08_21_201012) do
     t.string "first_name"
     t.string "last_name"
     t.date "birthday"
+    t.jsonb "roles", default: {}, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["roles"], name: "index_users_on_roles", using: :gin
   end
 
   add_foreign_key "tasks", "users"

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   root 'static_pages#landing'
   get "signup" => "users#new"
   resources :tasks
-  resources :users
+  resources :users, only: [:index, :show, :destroy, :edit, :update]
 end

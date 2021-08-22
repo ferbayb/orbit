@@ -4,6 +4,17 @@ class User < ApplicationRecord
 
   has_many :tasks, dependent: :destroy
 
+  include Roleable
+
+  def all_roles
+    roles = []
+    User::ROLES.each do |r|
+      role = r.to_s
+      roles.push(role.humanize)
+    end
+    roles
+  end
+
   def private_name
     first_name + " " + last_name.slice(0) + "."
   end

@@ -1,14 +1,16 @@
 <h2> <%= @user.private_name %> </h2>
-<h5> Profile Information </h5>
+<h5> <%= "#{@user.active_roles.join(", ").capitalize}" %> Information </h5>
 <hr>
 <%= "#{@user.age} years old." %><br>
 <%= "#{@user.email}"%><br>
-<%= "Joined Orbit #{time_ago_in_words(@user.created_at)} ago." %> <br><br>
+<%= "Joined Orbit #{time_ago_in_words(@user.created_at)} ago." %><br>
+<br>
 <h5>Active Listings</h5>
 <hr>
 <% @user.tasks.each do |t| %>
     <%= link_to t.address, task_path %><br>
 <% end %>
 <section class="admin">
-  <%= link_to "Edit Profile", edit_user_registration_path, class: "button" %></p>
+  <%= link_to "Edit Information", edit_user_registration_path, class: "button" %>
+  <%= link_to "Set Permissions", edit_user_path(@user), class: "button" %>
 </section>

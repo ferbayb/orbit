@@ -1,0 +1,17 @@
+<h2> Permissions </h2>
+<hr>
+<%= @user.private_name %><br>
+<%= @user.email %>
+<hr>
+
+<%= form_with(model: @user, local: true) do |f| %>
+    <%= render "shared/errors", object: @user %>
+    <% User::ROLES.each do |role| %>
+            <%= f.check_box role %>
+            <%= f.label role %><br>
+        <br>
+    <% end %>
+    <%= f.submit %>
+<% end %>
+<br>
+<%= link_to "Cancel", user_path(@user) %>

@@ -469,12 +469,16 @@ form:not([class="button_to"]) {
 		@extend .form-check-input;
 		width: 20px;
 	  	height: 20px;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 0rem;
 	}
 
 	input[type="checkbox"] + label {
 		@extend .form-check-label;
-		padding-left: 0.5rem;
-		margin-bottom: 0.5rem;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 3rem;
 	}
 
 	input[type="file"] {
