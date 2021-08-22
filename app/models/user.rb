@@ -7,7 +7,11 @@ class User < ApplicationRecord
   include Roleable
   
   after_create do
-    self.update(client: true)
+    if user.id == 1
+      self.update(admin: true)
+    else
+      self.update(client: true)
+    end
   end
 
   def all_roles
