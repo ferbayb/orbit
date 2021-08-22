@@ -7,7 +7,7 @@
 <h5>Active Listings</h5>
 <hr>
 <% @user.tasks.each do |t| %>
-    <%= link_to t.address, task_path %>
+    <%= link_to t.address, task_path %><br>
 <% end %>
 <section class="admin">
   <%= link_to "Edit Profile", edit_user_registration_path, class: "button" %></p>
