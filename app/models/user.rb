@@ -5,6 +5,10 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
   include Roleable
+  
+  after_create do
+    self.update(client: true)
+  end
 
   def all_roles
     roles = []
