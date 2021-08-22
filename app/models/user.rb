@@ -5,13 +5,9 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
   include Roleable
-  
+
   after_create do
-    if user.id == 1
-      self.update(admin: true)
-    else
-      self.update(client: true)
-    end
+    self.first_role
   end
 
   def all_roles
@@ -35,5 +31,13 @@ class User < ApplicationRecord
       else
         today.year - birthday.year
       end
+  end
+
+  def first_role
+    if self.id == 1
+      self.update(admin: true)
+    else
+      self.update(client: true)
+    end
   end
 end
