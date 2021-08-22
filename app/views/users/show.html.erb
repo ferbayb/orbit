@@ -13,8 +13,11 @@
   <% end %>
 <% end %>
 <section class="admin">
-  <%= link_to "Edit Information", edit_user_registration_path, class: "button" %>
+  <% if current_user?(@user) %>
+    <%= link_to "Edit Information", edit_user_registration_path, class: "button" %>
+  <% end %>
   <% if current_user.admin? %>
     <%= link_to "Set Permissions", edit_user_path(@user), class: "button" %>
+    <%= link_to "Delete Account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "button" %></p>
   <% end %>
 </section>

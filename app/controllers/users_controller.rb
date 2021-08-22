@@ -22,6 +22,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+    redirect_to users_path, alert: "Oh no! - Sorry to see you go."
+  end
+
   private
     def user_params
       params.require(:user).permit(*User::ROLES)
