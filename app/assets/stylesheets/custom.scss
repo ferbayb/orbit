@@ -10,6 +10,7 @@ $blue: #237CBE;
 $light-blue: lighten($blue, 40%);
 $orange: #E8890C;
 $yellow: #ffc107;
+$dark-yellow: darken($yellow, 20%);
 $light-yellow: #FFC;
 $red: #e34149;
 $dark-red: #520B0D;
@@ -40,6 +41,17 @@ $secondary: $dark-gray;
 input#user_remember_me {
 	position: static;
 	margin-left: 0rem;
+}
+
+#new_task{
+	background-color: $yellow;
+	color: $black;
+	border-color: $yellow;
+}
+#new_task:hover{
+	background-color: mediumseagreen;
+	color: $secondary-link-color;
+	border-color: mediumseagreen;
 }
 
 .content {
@@ -286,6 +298,16 @@ ul.users {
 
   li {
     margin: 1em 0;
+
+	a {
+		color: $dark-yellow;
+		padding: 0 0.125rem 0.125rem 0;
+		text-decoration: none;
+	}
+
+	a:hover {
+		border-bottom: 3px solid;
+	}
   }
 }
 

@@ -4,13 +4,17 @@
 <%= "#{@user.age} years old." %><br>
 <%= "#{@user.email}"%><br>
 <%= "Joined Orbit #{time_ago_in_words(@user.created_at)} ago." %><br>
-<br>
-<h5>Active Listings</h5>
-<hr>
-<% @user.tasks.each do |t| %>
-    <%= link_to t.address, task_path %><br>
+<% if @user.tasks.present?  %>
+  <br>
+  <h5>Active Listings</h5>
+  <hr>
+  <% @user.tasks.each do |t| %>
+      <%= link_to t.address, task_path %><br>
+  <% end %>
 <% end %>
 <section class="admin">
   <%= link_to "Edit Information", edit_user_registration_path, class: "button" %>
-  <%= link_to "Set Permissions", edit_user_path(@user), class: "button" %>
+  <% if current_user.admin? %>
+    <%= link_to "Set Permissions", edit_user_path(@user), class: "button" %>
+  <% end %>
 </section>
