@@ -5,7 +5,7 @@
             <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=16&size=500x500&center=#{t.latitude},#{t.longitude}&markers=size:mid%7Ccolor:0xe34149%7Clabel:%7C#{t.latitude},#{t.longitude}&key=AIzaSyBWcv3SgzJkW2biuy0ii1Tjf-EhCNzhYz8", alt: "Map", class:"card-img-top" %>
             <div class="card-body text-center">
                 <h5 class="card-title"><%= t.address %></h5>
-                <p class="card-text"><%= t.description %></p>
+                <p class="card-text"> <%= truncate(t.description, length: 55, separator: ' ' ) %> </p>
                 <%= link_to "More Information", task_path(t), class:"btn btn-primary" %>
             </div>
         </div>
