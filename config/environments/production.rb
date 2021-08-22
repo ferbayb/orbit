@@ -2,7 +2,19 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # AMAZON SES
+  config.action_mailer.default_url_options = {host: "visual-orbit.herokuapp.com", protocol: "https"}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  port: 587,
+  address: 'email-smtp.us-east-2.amazonaws.com',
+  user_name: 'AKIAX7KUYMPJFYY2KR5N',
+  password: 'BL7yaIoNTS5aKC2bRPAPaj5czx5zVLEHFxReAKOvBOm0',
+  authentication: :plain,
+  enable_starttls_auto: true
+  }
   # Code is not reloaded between requests.
   config.cache_classes = true
 
