@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_22_103347) do
+ActiveRecord::Schema.define(version: 2021_08_22_172842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "quotes", force: :cascade do |t|
+    t.float "price"
+    t.string "content"
+    t.datetime "booking"
+    t.bigint "task_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_quotes_on_task_id"
+    t.index ["user_id"], name: "index_quotes_on_user_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "address"
@@ -48,5 +60,7 @@ ActiveRecord::Schema.define(version: 2021_08_22_103347) do
     t.index ["roles"], name: "index_users_on_roles", using: :gin
   end
 
+  add_foreign_key "quotes", "tasks"
+  add_foreign_key "quotes", "users"
   add_foreign_key "tasks", "users"
 end

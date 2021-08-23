@@ -43,6 +43,24 @@ input#user_remember_me {
 	margin-left: 0rem;
 }
 
+.comment-features{
+	text-align: right;
+	a {
+		padding: 6px 9px;
+		border: 1px solid $yellow;
+		border-radius: 6px;
+		background-color: $yellow;
+		text-decoration: none;
+	}
+}
+
+#showmap{
+	padding: 0 15px 0 15px;
+	width: 420px;
+	display: flex;
+	justify-content: center;
+}
+
 #new_task{
 	background-color: $yellow;
 	color: $black;
@@ -208,6 +226,7 @@ section.event-details {
 
 	.details {
 		@extend .col-md-7, .text-left;
+		max-width: 600px;
 	}
 
 	aside {
@@ -257,10 +276,6 @@ section.event-details {
   p {
 		margin-top: 1rem;
     font-size: 1.15em;
-	}
-
-	img {
-		margin-top: 0.5rem;
 	}
 
 	.register {
@@ -471,15 +486,22 @@ form:not([class="button_to"]) {
 
 	input:not([type="checkbox"]):not([type="file"]):not([type="submit"]),
 	textarea,
-	select:not(.date) {
+	select:not(.datetime) {
 		@extend .form-control;
 		margin-bottom: 0.75rem;
 		width: 100%;
 	}
 
-	select.date {
+	select.datetime{
 		display: inline-block;
 		margin-bottom: 0.75rem;
+	}
+
+	select.date{
+		@extend select.datetime;
+		display: inline-block;
+		margin-bottom: 0.75rem;
+		width: 10%;
 	}
 
 	input[type="submit"] {

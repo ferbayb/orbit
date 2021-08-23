@@ -11,7 +11,7 @@
     <%= f.text_field :last_name %>
 
     <%= f.label :birthday, "Birthday" %>
-    <%= f.date_field :birthday %>
+    <%= f.date_select :birthday, {}, :class => "datetime" %>
 
     <%= f.label :email %>
     <%= f.email_field :email, autocomplete: "email" %>

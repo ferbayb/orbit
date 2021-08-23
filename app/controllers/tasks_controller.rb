@@ -7,6 +7,7 @@ class TasksController < ApplicationController
 
     def show
         @task = Task.find(params[:id])
+        @quotes = Quote.where(task_id: @task).order(created_at: :desc)
     end
 
     def edit

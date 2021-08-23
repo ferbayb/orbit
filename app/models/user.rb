@@ -3,6 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :tasks, dependent: :destroy
+  has_many :quotes, dependent: :destroy
 
   include Roleable
 
