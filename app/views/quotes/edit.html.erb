@@ -1,0 +1,11 @@
+<hr>
+<%= form_for ([@task, @quote]) do |f| %>
+  <h5>Editing Quote</h5>
+  <%= f.label :price, "Quote Price" %>
+  <%= f.number_field :price %>
+  <%= f.label :booking, "Proposed Time" %>
+  <%= f.datetime_select :booking, { ampm: true }, :class => 'datetime' %>
+  <%= f.label :content, "Further Information"%>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

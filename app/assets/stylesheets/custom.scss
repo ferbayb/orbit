@@ -378,14 +378,6 @@ section.user {
 			font-weight: 600;
 			margin-top: 1rem;
 		}
-
-		.dates {
-			@extend .col-md-4, .text-right;
-			font-size: 1rem;
-			font-weight: 600;
-			margin-top: 1rem;
-			color: $secondary-text-color;
-		}
 	}
 
 	.liked-events {
@@ -495,13 +487,6 @@ form:not([class="button_to"]) {
 	select.datetime{
 		display: inline-block;
 		margin-bottom: 0.75rem;
-	}
-
-	select.date{
-		@extend select.datetime;
-		display: inline-block;
-		margin-bottom: 0.75rem;
-		width: 10%;
 	}
 
 	input[type="submit"] {

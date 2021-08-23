@@ -2,10 +2,23 @@
 <%= form_for ([@task, @task.quotes.build]) do |f| %>
   <h5>Submit A Quote</h5>
   <%= f.label :price, "Quote Price" %>
-  <%= f.number_field :price %>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">$</span>
+    </div>
+    <%= f.number_field :price, :class => "form-control" %>
+    <div class="input-group-append">
+      <span class="input-group-text">AUD</span>
+    </div>
+  </div>
   <%= f.label :booking, "Proposed Time" %>
-  <%= f.datetime_select :booking, { ampm: true }, :class => 'datetime' %>
-  <%= f.label :content, "Further Information"%>
+  <div class="input-group mb-3">
+    <%= f.datetime_local_field :booking, :class => "form-control" %>
+    <div class="input-group-append">
+      <span class="input-group-text">AEST</span>
+    </div>
+  </div>
+  <%= f.label :content, "Further Information" %>
   <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>

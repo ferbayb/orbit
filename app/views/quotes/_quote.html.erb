@@ -1,6 +1,6 @@
 <hr>
-<h5>Active Quotes</h5>
-<% @quotes.each do |q| %>
+<h5><%= pluralize(@quotes.count, "Active Quote") %></h5>
+<% @quotes.each do |quote| %>
   <div class="comment">
     <div class="card mb-3" style="max-width: 600px;">
       <div class="row g-0">
@@ -9,13 +9,17 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><%= q.booking.strftime("%a %l%p - %d/%m/%y ") %> - <%= number_to_currency(q.price) %></h5>
-            <p class="card-text"><%= q.content %></p>
+            <h5 class="card-title"><%= quote.booking.strftime("%a %l%p - %d/%m/%y ") %> - <%= number_to_currency(quote.price) %></h5>
+            <p class="card-text"><%= quote.content %></p>
             <div id="comment-features">
-              <p class="card-text"><small class="text-muted">Sent by <%= link_to q.user.first_name, q.user %> <%= time_ago_in_words(q.created_at) %> ago -
-                  <%= link_to "Delete", task_quote_path(q.task, q), method: :delete %> /
-                  <%= link_to 'Edit', edit_task_quote_path(q.task, q) %></small>
-              </p>
+                <p class="card-text"><small class="text-muted">Sent by <%= link_to quote.user.first_name, quote.user %> <%= time_ago_in_words(quote.created_at) %> ago.
+                  <% if current_user == quote.user %>
+                    - <%= link_to "Delete", task_quote_path(quote.task, quote), method: :delete %> /
+                    <%= link_to 'Edit', edit_task_quote_path(quote.task, quote) %></small>
+                  <% elsif current_user == @task.user %>
+                    - <%= link_to "Reject", task_quote_path(quote.task, quote), method: :delete %>
+                  <% end %>
+                </p>
             </div>
           </div>
         </div>
@@ -24,4 +28,8 @@
   </div>
 <% end %>
 <br>
-<%= render 'quotes/form' %>
+<% if current_user != @task.user %>
+  <% unless current_user.roles.include?("client") == "true" %>
+    <%= render 'quotes/form' %>
+  <% end %>
+<% end %>
