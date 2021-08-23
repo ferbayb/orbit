@@ -1,49 +1,43 @@
 <section class="event-details">
-    <div class="details">
-        <h2>
-            <%= @task.address %>
-            <br>
-        </h2>
-        <h3>
-            <%= link_to @task.user.private_name, @task.user %>
-            <%= "- Created #{time_ago_in_words(@task.created_at)} ago." %>
-        </h3>
-        <hr>
-        <h5>Task Description</h5>
-        <p> <%= @task.description %> </p>
-
-        <div>
-            <%= render 'quotes/quote' %>
-            <br>
-        </div>
+  <div class="details">
+    <h2>
+      <%= @task.address %>
+      <br>
+    </h2>
+    <h3>
+      <%= link_to @task.user.private_name, @task.user %>
+      <%= "- Created #{time_ago_in_words(@task.created_at)} ago." %>
+    </h3>
+    <hr>
+    <h5>Task Description</h5>
+    <p> <%= @task.description %> </p>
+    <div>
+      <%= render 'quotes/quote' %>
+      <br>
     </div>
-
-    <div id="showmap">
-        <iframe 
+  </div>
+  <div id="showmap">
+    <iframe 
             width="350" 
             height="700" 
             style="border:0" 
             loading="lazy" 
             allowfullscreen 
             src= <%= @task.map_embed(@task.latitude, @task.longitude) %> >
-        </iframe>
-    </div>
-
+    </iframe>
+  </div>
 </section>
-
 <hr>
-
-
 <section>
-    <% if current_user.id == @task.user_id %>
-                <section class="admin">
-                <h5>Task Options</h5>
-                    <%= link_to "Edit", edit_task_path(@task), class: "button" %>
-                    <%= link_to "Delete",
+  <% if current_user.id == @task.user_id %>
+    <section class="admin">
+      <h5>Task Options</h5>
+      <%= link_to "Edit", edit_task_path(@task), class: "button" %>
+      <%= link_to "Delete",
                     task_path(@task),
                     class: "button",
                     method: :delete,
                     data: { confirm: "This action will permanently delete the scan." } %>
-                </section>
-    <% end %>
+    </section>
+  <% end %>
 </section>

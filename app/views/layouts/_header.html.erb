@@ -1,32 +1,29 @@
 <header>
-    <nav>
-        <h1>Orb<span class="accent">it</span>.</h1>
-        <ul class="left">
-            <li> <%= link_to "Tasks", tasks_path %> </li>
-            <li> <%= link_to "Users", users_path %> </li>
-        </ul>
-        <ul class="right">
-            <% if current_user %>
-                <li>
-                    <%= link_to "New Task", new_task_path(@task), class: "button", id: "new_task" %>
-                </li>
-
-                <li>
-                    <%= link_to "My Profile", current_user, class: "button" %>
-                </li>
-
-                <li>
-                    <%= link_to "Sign Out", destroy_user_session_path, class: "button", method: :delete %>
-                </li>
-            <% else %>
-                <li>
-                    <%= link_to "Register", new_user_registration_path, class: "button" %>
-                </li>
-
-                <li>
-                    <%= link_to "Login", new_user_session_path, class: "button" %>
-                </li>
-            <% end %>
-        </ul>
-    </nav>
+  <nav>
+    <h1>Orb<span class="accent">it</span>.</h1>
+    <ul class="left">
+      <li> <%= link_to "Tasks", tasks_path %> </li>
+      <li> <%= link_to "Users", users_path %> </li>
+    </ul>
+    <ul class="right">
+      <% if current_user %>
+        <li>
+          <%= link_to "New Task", new_task_path(@task), class: "button", id: "new_task" %>
+        </li>
+        <li>
+          <%= link_to "My Profile", current_user, class: "button" %>
+        </li>
+        <li>
+          <%= link_to "Sign Out", destroy_user_session_path, class: "button", method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Register", new_user_registration_path, class: "button" %>
+        </li>
+        <li>
+          <%= link_to "Login", new_user_session_path, class: "button" %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
 </header>

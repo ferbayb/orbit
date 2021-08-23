@@ -2,20 +2,15 @@
                                             controller: :maps,
                                             action: "google-maps-callback@window->maps#initializeMap"
                                           }) do |f| %>
-    <%= render "shared/errors", object: task %>
-
-    <%= f.label :address %>
-    <%= f.text_field :address, autofocus: true, class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
-
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude, class: 'form-control', data: { target: "maps.latitude" } %>
-
-    <%= f.label :longitude %>
-    <%= f.text_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-
-    <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
-    <%= f.submit %>
+  <%= render "shared/errors", object: task %>
+  <%= f.label :address %>
+  <%= f.text_field :address, autofocus: true, class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
+  <%= f.label :latitude %>
+  <%= f.text_field :latitude, class: 'form-control', data: { target: "maps.latitude" } %>
+  <%= f.label :longitude %>
+  <%= f.text_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
+  <%= f.submit %>
 <% end %>

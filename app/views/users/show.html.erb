@@ -9,7 +9,7 @@
   <h5>Active Listings</h5>
   <hr>
   <% @user.tasks.each do |t| %>
-      <%= link_to t.address, task_path(t) %><br>
+    <%= link_to t.address, task_path(t) %><br>
   <% end %>
 <% end %>
 <section class="admin">
@@ -19,5 +19,5 @@
   <% if current_user.admin? %>
     <%= link_to "Set Permissions", edit_user_path(@user), class: "button" %>
     <%= link_to "Delete Account", user_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "button" %></p>
-  <% end %>
+<% end %>
 </section>
