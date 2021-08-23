@@ -29,7 +29,7 @@
 <% end %>
 <br>
 <% if current_user != @task.user %>
-  <% unless current_user.roles.include?("client") == "true" %>
+  <% if current_user.roles['client'] == false %>
     <%= render 'quotes/form' %>
   <% end %>
 <% end %>
