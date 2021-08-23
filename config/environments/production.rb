@@ -8,10 +8,10 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  port: 587,
-  address: 'email-smtp.us-east-2.amazonaws.com',
-  user_name: 'AKIAX7KUYMPJFYY2KR5N',
-  password: 'BL7yaIoNTS5aKC2bRPAPaj5czx5zVLEHFxReAKOvBOm0',
+  port: 2525,
+  address: 'smtp.elasticemail.com',
+  user_name: 'gcab012113@coderacademy.edu.au',
+  password: 'E6A4DD8866593AC5237774916CA9F355D6A4',
   authentication: :plain,
   enable_starttls_auto: true
   }

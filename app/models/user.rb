@@ -20,6 +20,8 @@ class User < ApplicationRecord
     roles
   end
 
+  scope :recent, lambda { order(created_at: :desc) }
+
   def private_name
     first_name + " " + last_name.slice(0) + "."
   end
