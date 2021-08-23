@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
     belongs_to :user
-    has_many :quotes
+    has_many :quotes, dependent: :destroy
 
     validates :address, presence: true
     validates :description, presence: true, length: { minimum: 25, maximum: 500 }
