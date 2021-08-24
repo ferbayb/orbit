@@ -7,7 +7,7 @@
       <li> <%= link_to "Tasks", tasks_path %> </li>
       <li> <%= link_to "Users", users_path %> </li>
     </ul>
-    <ul class="right">
+    <ul class="right"> 
       <% if current_user %>
         <li>
           <%= link_to "New Task", new_task_path(@task), class: "button", id: "new_task" %>
