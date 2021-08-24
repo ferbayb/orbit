@@ -18,7 +18,8 @@ gem 'geocoder', '~> 1.6', '>= 1.6.7'
 gem 'invisible_captcha'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
+gem 'aws-sdk-s3', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-
+  has_one_attached :avatar
   has_many :tasks, dependent: :destroy
   has_many :quotes, dependent: :destroy
 
@@ -42,5 +42,9 @@ class User < ApplicationRecord
     else
       self.update(client: true)
     end
+  end
+
+  def avatar_thumbnail
+    avatar.variant(resize: "150x150!").processed
   end
 end
