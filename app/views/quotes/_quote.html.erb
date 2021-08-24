@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5 class="card-title"><%= quote.booking.strftime("%a %l%p - %d/%m/%y ") %> - <%= number_to_currency(quote.price) %></h5>
+            <h5 class="card-title"><%= quote.booking.strftime("%a %d/%m, %H:%M") %> - <%= number_to_currency(quote.price) %></h5>
             <p class="card-text"><%= quote.content %></p>
             <div id="comment-features">
                 <p class="card-text"><small class="text-muted">Sent by <%= link_to quote.user.first_name, quote.user %> <%= time_ago_in_words(quote.created_at) %> ago.
