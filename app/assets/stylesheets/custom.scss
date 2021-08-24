@@ -38,6 +38,18 @@ $secondary: $dark-gray;
 @import "bootstrap";
 
 // Custom CSS
+#avatar-container{
+	position: relative;
+	left: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0% 15px;
+}
+
+.comment-avatar {
+	max-width: 90%;
+}
 
 #avatar-input {
 	display: grid;

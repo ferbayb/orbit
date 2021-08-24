@@ -4,8 +4,8 @@
   <div class="comment">
     <div class="card mb-3" style="max-width: 600px;">
       <div class="row g-0">
-        <div class="col-md-4">
-          <%= image_tag '/assets/test.jpg', :class => "img-fluid rounded-start"%>
+        <div class="col-md-4" id='avatar-container'>
+          <%= image_tag(quote.user.avatar_thumbnail, class: 'comment-avatar rounded-circle') %>
         </div>
         <div class="col-md-8">
           <div class="card-body">
