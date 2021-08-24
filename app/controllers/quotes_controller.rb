@@ -44,7 +44,7 @@ class QuotesController < ApplicationController
 
   def quote_owner
     unless current_user.id == @quote.user_id || current_user.id == @task.user_id
-        flash[:alert] = "You are not the owner of this quote or task."
+      flash[:alert] = "You are not the owner of this quote or task."
     end
   end
 end

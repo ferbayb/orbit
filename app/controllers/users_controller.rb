@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :require_admin, only: [:edit, :update]
+
   def index
     @users = User.all
   end
@@ -30,17 +31,18 @@ class UsersController < ApplicationController
   end
 
   def after_sign_in_path_for(resource)
-		user_path(resource)
+    user_path(resource)
   end
 
   private
-    def user_params
-      params.require(:user).permit(*User::ROLES)
-    end
 
-    def require_admin
-      unless current_user.admin
-        redirect_to root_path, alert: "You can not edit your own permissions. Please contact an admin"
-      end
+  def user_params
+    params.require(:user).permit(*User::ROLES)
+  end
+
+  def require_admin
+    unless current_user.admin
+      redirect_to root_path, alert: "You can not edit your own permissions. Please contact an admin"
     end
+  end
 end

@@ -1,38 +1,35 @@
     <body>
-        <div class="header">
-            <div class="container text-center">
-                <div class=" id="row">
-                    <div class="col-md-12">
-                        <h1><a class="brand" href="https://visual-orbit.herokuapp.com">Orbit.</a></h1>
-                    </div>
-
-                    <div class="col-md-12">
-                        <% if current_user.present? %>
-                            <h4>Welcome back, <%= current_user.first_name %>.</h4>
-                            <br>
-                        <% end %>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <h1>Real World Capture</h1>
-
-                    <p class="tagline">
-                        Using Virtual Reality & Digital Twins.
-                    </p>
-                    <p>
-                        A Ruby on Rails web application by Ben Flint.
-                    </p>
-                    <a class="btn" href="https://github.com/flintzb/orbit">
-                        <span class="iconify" data-icon="logos:github-icon"></span>
-                        <p>Github</p>
-                    </a>
-                    <a class="btn" href="https://www.linkedin.com/in/benflint/">
-                        <span class="iconify" data-icon="logos:linkedin-icon"></span>
-                        <p>LinkedIn</p>
-                    </a>
-                </div>
-            </div>
+  <div class="header">
+    <div class="container text-center">
+      <div class=" id="row">
+        <div class="col-md-12">
+          <h1><a class="brand" href="https://visual-orbit.herokuapp.com">Orbit.</a></h1>
         </div>
-    </body>
+        <div class="col-md-12">
+          <% if current_user.present? %>
+            <h4>Welcome back, <%= current_user.first_name %>.</h4>
+            <br>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <h1>Real World Capture</h1>
+        <p class="tagline">
+          Using Virtual Reality & Digital Twins.
+        </p>
+        <p>
+          A Ruby on Rails web application by Ben Flint.
+        </p>
+        <a class="btn" href="https://github.com/flintzb/orbit">
+          <span class="iconify" data-icon="logos:github-icon"></span>
+          <p>Github</p>
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/benflint/">
+          <span class="iconify" data-icon="logos:linkedin-icon"></span>
+          <p>LinkedIn</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

@@ -31,11 +31,11 @@ class User < ApplicationRecord
   def age
     return nil unless birthday.present?
     today = Time.current.to_date
-      if today.month < birthday.month || (today.month == birthday.month && birthday.day > today.day)
-        today.year - birthday.year - 1
-      else
-        today.year - birthday.year
-      end
+    if today.month < birthday.month || (today.month == birthday.month && birthday.day > today.day)
+      today.year - birthday.year - 1
+    else
+      today.year - birthday.year
+    end
   end
 
   def first_role
@@ -55,16 +55,17 @@ class User < ApplicationRecord
   end
 
   private
+
   def add_def_avatar
     unless avatar.attached?
       avatar.attach(
         io: File.open(
           Rails.root.join(
-            'app', 'assets', 'images', 'def_avatar.png'
+            "app", "assets", "images", "def_avatar.png"
           )
         ),
-        filename: 'def_avatar.png', 
-        content_type: 'image/png'
+        filename: "def_avatar.png",
+        content_type: "image/png",
       )
     end
   end

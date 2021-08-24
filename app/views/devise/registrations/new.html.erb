@@ -4,23 +4,17 @@
   <%= invisible_captcha %>
   <%= f.label :first_name, "Name" %>
   <%= f.text_field :first_name, autofocus: true %>
-
   <%= f.label :last_name, "Surname" %>
   <%= f.text_field :last_name %>
-
   <%= f.label :birthday, "Birthday" %>
   <%= f.date_field :birthday
   %>
-
   <%= f.label :email %>
   <%= f.email_field :email, autocomplete: "email" %>
-
   <%= f.label :password %>
   <%= f.password_field :password, autocomplete: "new-password" %>
-
   <%= f.label :password_confirmation, "Confirm Password" %>
   <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-
   <div class="actions">
     <%= f.submit "Register" %>
   </div>

@@ -1,5 +1,4 @@
 module Roleable
-
   extend ActiveSupport::Concern
   included do
     # List user roles
@@ -10,7 +9,7 @@ module Roleable
 
     # Cast roles to/from booleans
     ROLES.each do |role|
-      scope role, -> { where("roles @> ?", {role => true}.to_json) }
+      scope role, -> { where("roles @> ?", { role => true }.to_json) }
       define_method(:"#{role}=") { |value| super ActiveRecord::Type::Boolean.new.cast(value) }
       define_method(:"#{role}?") { send(role) }
     end
@@ -27,8 +26,8 @@ module Roleable
 
     def must_have_an_admin
       if persisted? &&
-          (User.where.not(id: id).pluck(:roles).count { |h| h["admin"] == true } < 1) &&
-          roles_changed? && admin == false
+         (User.where.not(id: id).pluck(:roles).count { |h| h["admin"] == true } < 1) &&
+         roles_changed? && admin == false
         errors.add(:base, "There should be at least one admin")
       end
     end
