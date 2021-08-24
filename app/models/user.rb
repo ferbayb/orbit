@@ -2,8 +2,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_one_attached :avatar
+  after_commit :add_def_avatar, on: %i[create update]
   has_many :tasks, dependent: :destroy
   has_many :quotes, dependent: :destroy
+  validate :acceptable_image
 
   include Roleable
 
@@ -45,6 +47,32 @@ class User < ApplicationRecord
   end
 
   def avatar_thumbnail
-    avatar.variant(resize: "150x150!").processed
+    if avatar.attached?
+      avatar.variant(resize: "250x250!").processed
+    else
+      "/def_avatar.png"
+    end
+  end
+
+  private
+  def add_def_avatar
+    unless avatar.attached?
+      avatar.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'def_avatar.png'
+          )
+        ),
+        filename: 'def_avatar.png', 
+        content_type: 'image/png'
+      )
+    end
+  end
+
+  def acceptable_image
+    return unless avatar.attached?
+    unless avatar.blob.byte_size <= 3.megabyte
+      errors.add(:avatar, "is too large.")
+    end
   end
 end

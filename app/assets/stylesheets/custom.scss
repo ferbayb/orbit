@@ -38,6 +38,18 @@ $secondary: $dark-gray;
 @import "bootstrap";
 
 // Custom CSS
+
+#avatar-input {
+	display: grid;
+	place-content: center;
+}
+
+#current_password {
+	padding: 20px 10px;
+	background-color: rgba($color: #e28d0c, $alpha: 0.75);
+	border-radius: 10px;
+}
+
 input#user_remember_me {
 	position: static;
 	margin-left: 0rem;
@@ -434,6 +446,10 @@ section.admin {
 		@extend .btn, .btn-secondary;
 		letter-spacing: 1px;
 		text-transform: uppercase;
+	}
+
+	img {
+		margin-bottom: 2rem;
 	}
 }
 

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :require_admin, only: [:edit, :update]
   def index
     @users = User.all
@@ -26,6 +27,10 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
     redirect_to users_path, alert: "Oh no! - Sorry to see you go."
+  end
+
+  def after_sign_in_path_for(resource)
+		user_path(resource)
   end
 
   private
