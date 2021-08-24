@@ -15,10 +15,11 @@
                 <p class="card-text"><small class="text-muted">Sent by <%= link_to quote.user.first_name, quote.user %> <%= time_ago_in_words(quote.created_at) %> ago.
                   <% if current_user == quote.user %>
                     - <%= link_to "Delete", task_quote_path(quote.task, quote), method: :delete %> /
-                    <%= link_to 'Edit', edit_task_quote_path(quote.task, quote) %></small>
+                    <%= link_to 'Edit', edit_task_quote_path(quote.task, quote) %> 
                   <% elsif current_user == @task.user %>
                     - <%= link_to "Reject", task_quote_path(quote.task, quote), method: :delete %>
                   <% end %>
+                  </small>
                 </p>
             </div>
           </div>
