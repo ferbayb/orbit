@@ -1,6 +1,6 @@
 # T2A2 Marketplace Project - Orbit :rocket:
 
-In the following README document, I will go over the 22 requirements outlined by my educators. It's not the traditional way of writing a README, however I believe it will streamline marking processes. 
+In the following README document, I will go over the 22 requirements outlined by my educators. It's not the traditional way of writing a README, however I believe it will streamline marking processes.
 
 
 ### R7 & R8 - Identification of the problem and reasoning behind building Orbit.
@@ -106,19 +106,26 @@ You can find the public repo of the latest available build on Heroku at:
 
 - Authentication & Spam Prevention
   Orbit allows users to register and sign in to this application through the Devise gem. Alongside registrations and logging in, devise also provides further helpful functionality such as being able to confirm a users email address and resetting your password.
-
-Alongside devise, I also used 'invisible_captcha' which renders invisible form fields that manipulate malicious parties into filling them. A real user would leave these fields empty and as such, if any of these fields are populated, the form submission is prevented. 
-
-These two features provide my application with the necessary framework to add and manage real users.
+  
+  Alongside devise, I also used 'invisible_captcha' which renders invisible form fields that manipulate malicious parties into filling them. A real user would leave these fields empty and as such, if any of these fields are populated, the form submission is prevented. 
+  
+  These two features provide my application with the necessary framework to add and manage real users.
 
 - Authorisation & Administrators
   Being able to see and manipulate what you're *supposed to see and manipulate* is a crucial aspect to any good application. Especially one such as Orbit that deals with sensitive information such as addresses and surnames. I manually defined roles and authorisations to categorise my users into three categories.
-    Clients:
-    Base level access account, cannot touch elements that belong to others, cannot submit quotes for jobs. As the name suggests, this access level is for clients and not operators/technicians. 
-    Technicians:
-    If approved, clients can become technicians through the administrator. In a real world scenario, a user may request this access level because they have the skills and required know-how of operating a drone or conducting reality capture scans. This access level provides each technician with the ability to submit a quote. However, a technician may only delete or edit elements that belong to them only.
-    Administrator:
-    As suggested by the name, an admin has site level permissions, they can access quotes, edit and even delete the profiles of others. But most importantly, they can grant and revoke permissions of other users.
+  
+  Clients:
+  Base level access account, cannot touch elements that belong to others, cannot submit quotes for jobs. As the name suggests, this access level is for clients and not operators/technicians.
+  
+  Technicians:
+  If approved, clients can become technicians through the administrator. In a real world scenario, a user may request this access level because they have the skills and required know-how of operating a drone or conducting reality capture scans. This access level provides each technician with the ability to submit a quote. However, a technician may only delete or edit elements that belong to them only.
+  
+  ![](app/assets/images/screenshots/2.png)
+  
+  Administrator:
+  As suggested by the name, an admin has site level permissions, they can access quotes, edit and even delete the profiles of others. But most importantly, they can grant and revoke permissions of other users.
+  
+  ![](app/assets/images/screenshots/3.png)
 
 
 - Transactional Emails
@@ -163,51 +170,87 @@ These two features provide my application with the necessary framework to add an
 
   ---
 
+  ![](app/assets/images/screenshots/Sitemap.png)
+
+  
+
     ### R11d - Screenshots
 
   ---
 
+  ### Landing
+
+  ### ![Landing](app/assets/images/screenshots/Landing.png)
+
+  ### Signup and Registration Pages
+
+  ![Signup](app/assets/images/screenshots/Registration.png)
+  
+  ![Signin](app/assets/images/screenshots/Signin.png)
+
+  ### User Pages
+  
+  
+  
+  ![UserIndex](app/assets/images/screenshots/UserIndex.png)
+  
+  ![UserShow](app/assets/images/screenshots/UserShow.png)
+  
+  
+  
+  ![UserEdit](app/assets/images/screenshots/UserEdit.png)
+  
+  ![UserPermissions](app/assets/images/screenshots/UserPermissions.png)
+  
+  ### Task Pages
+  
+  ![TaskIndex](app/assets/images/screenshots/TaskIndex.png)
+  
+  ![TaskNew](app/assets/images/screenshots/TaskNew.png)
+  
+  ![TaskShow](app/assets/images/screenshots/TaskShow.png)
+  
     ### R11e - Target Audience
-
+  
   ---
-
+  
     As with any two sided marketplace, our target audience consists of two different types of users. A **Client** and a **Technician.**
-
+  
     Clients consist of the demographic that require modelling and imaging to be done for them. This can be for multiple reasons.
-
+  
     They are either: 
-
+  
     - Unfamiliar with the technology but require it's benefits.
     - Familiar with the technology but don't have the necessary equipment.
     - Familiar with the technology, have the necessary equipment but don't have the time or willpower to spend doing this task.
 
     As such, there can be great variance in who a client can be, however one thing they all have in common is that they have an asset or area that requires scanning. 
   Within Orbit, the clients are the buyers of the digital assets that are quoted to them by different technicians. They can choose to go with whichever technician they see fit, varying by price/availability/extra services, but in the end, the client will buy the assets/services from a single technician.
-
   
-
+  
+  
     Technicians are the individuals who have the necessary requirements behind being an operator of drones and reality capture cameras. They are often hobbyists and enthusiasts who have gotten the necessary expertise required to offer their services at a cost. 
-
+  
     Technicians are *required* to have the necessary equipment in order to carry out a specific task on Orbit. By law, they are also required to hold a RePL licence from CASA if their drone is over 250grams. 
-
+  
     Given the material and legal requirements for technicians, they are required to go through a manual approval process in which the site admin will give them the necessary permissions in order to complete the task. 
-
+  
     Given the requirements above, technicians are required to be over 18 years old.
-
+  
     ### R11f, Also R1 to R6 - Tech Stack
-
+  
     Requirements 1 to 6 of the application refer to the tech stack behind the application and its deployment. Orbit is a web application that was built-on the popular web framework **Ruby on Rails (R1)** also using the very popular and open-source **PostgreSQL** **(R2)** as the Database Management System. Orbit was built on **Heroku (R6)** using CI/CD principles through a connection with the repository on Github. 
-
+  
     **(R16) CMP1042-1.3 Detail any third party services that your app will use:**
-
+  
     Orbit uses many gems and third-party services to add features such as: 
-
+  
     - [invisible_captcha](https://github.com/markets/invisible_captcha) - A gem used to prevent bots and malicious users to register for the site. This gem alongside Devise's :confirmable feature through AWS SES allows me to ensure the validity of the users that sign up to my app.
-
+  
     - [Devise](https://github.com/heartcombo/devise) - **Authentication (R3),** I initially created an entire user model from scratch and in doing so, learnt a lot about the manual sign in and out process of a rails application, alongside important concepts such as the sessions controller. However, I later learnt that in application, Devise not only uses better, more complete, methods of authentication, but also speeds of the development speed of the programmer.
-
+  
       With Devise, I was able to:
-
+  
       - Create A Login System
       - Create A Registration System
       - Confirm Email Addresses
@@ -248,39 +291,41 @@ These two features provide my application with the necessary framework to add an
   - Want this scan to occur at a time that works for me so I don't need to reschedule valuable time out of my busy day.
 
   - Want this scan to happen for a price that is reasonable to me, so I feel like I am getting the appropriate amount of value for the money that I am spending.
-
+  
   - Want to be able to view different quotes sent to me so that I am considering all my options.
-
+  
   - Want to be able to reject quotes in case I definitely can not accept their offer.
-
+  
   - Don't want to see quotes sent by bots or spam accounts so I know that I'm always speaking with a real person.
-
+  
     
-
+  
   **As a Technician I :**
-
+  
   - Want to monetise my hobby and find people who require my services so that I can earn money doing something fun at times that are suitable to me.
-
+  
   - Want to be able to see further information about any given task so that I can make an educated decision on whether or not I am the right person for the job.
-
+  
   - Want to see *where* a job is so the I can do jobs that are convenient to me.
-
+  
   - Want to see *who* posted the job so I can contact them.
-
+  
   - Want to send quotes in to whichever jobs I choose.
-
+  
   - Want to be able to edit my quotes in case I made a mistake.
-
+  
   - Want to be able to delete my quotes in case I no longer can do them.
-
+  
   - Don't want to see jobs posted by bots and spam accounts so I know that I'm always speaking to a real person.
-
+  
     
-
+  
   ## Wireframes
-
+  
   ---
-
+  
   When I first started this project, my wireframes looked like this:
-
-  The image is in high resolution so I won't post all screens on here, but I wanted to point out how since then my wireframes change
+  
+  ![OldWireframe](app/assets/images/wireframes/OldWireframe.png)
+  
+  The image is in high resolution so I won't post all screens on here, but I wanted to point out how since then my wireframes have changed.
