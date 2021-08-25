@@ -21,7 +21,7 @@ class User < ApplicationRecord
     end
     roles
   end
-
+  #sort by user creation date, descended.
   scope :recent, lambda { order(created_at: :desc) }
 
   def private_name
