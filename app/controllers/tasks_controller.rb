@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+    #Any actions involving tasks requires login due to private information involved.
     before_action :authenticate_user!
 
     def index
@@ -7,6 +8,7 @@ class TasksController < ApplicationController
 
     def show
         @task = Task.find(params[:id])
+        #Make a database query to list quotes, newest first.
         @quotes = Quote.where(task_id: @task).order(created_at: :desc)
     end
 
@@ -28,6 +30,7 @@ class TasksController < ApplicationController
     end
 
     def create
+        #Create the task with the user_id of current user.
         @task = Task.create(task_params.merge(user_id: current_user.id))
         if @task.save
             redirect_to @task, notice: "Success."
@@ -43,6 +46,7 @@ class TasksController < ApplicationController
     end
 
     private
+    #Permit task parameters to come through this private method. 
         def task_params
             params.require(:task).permit(:address, :description, :latitude, :longitude)
         end

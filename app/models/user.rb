@@ -1,33 +1,37 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-  has_one_attached :avatar
+  
+  #After Commit Actions
   after_commit :add_def_avatar, on: %i[create update]
+  
+  #ActiveRecord Associations
   has_many :tasks, dependent: :destroy
   has_many :quotes, dependent: :destroy
+  has_one_attached :avatar
+  
+  #Validations, Other Validations are handled by Devise.
+  
+  #Custom Image Validation
   validate :acceptable_image
-
+  
+  #Role Management is in concerns/roleable.rb to avoid congestion.
   include Roleable
-
+  
+  #Default Role of User
   after_create do
     self.first_role
   end
-
-  def all_roles
-    roles = []
-    User::ROLES.each do |r|
-      role = r.to_s
-      roles.push(role.humanize)
-    end
-    roles
-  end
-  #sort by user creation date, descended.
+  
+  #When pulling information with recent, sort by user creation date, descended. (New to Old)
   scope :recent, lambda { order(created_at: :desc) }
-
+  
+  #Omit surname from profiles for privacy concerns.
   def private_name
     first_name + " " + last_name.slice(0) + "."
   end
-
+  
+  #Return user age
   def age
     return nil unless birthday.present?
     today = Time.current.to_date
@@ -37,7 +41,8 @@ class User < ApplicationRecord
       today.year - birthday.year
     end
   end
-
+  
+  #Give default role of client to signups, unless first signup, in which case, give role of admin.
   def first_role
     if self.id == 1
       self.update(admin: true)
@@ -45,7 +50,8 @@ class User < ApplicationRecord
       self.update(client: true)
     end
   end
-
+  
+  #
   def avatar_thumbnail
     if avatar.attached?
       avatar.variant(resize: "250x250!").processed
@@ -55,7 +61,7 @@ class User < ApplicationRecord
   end
 
   private
-
+  #Method for default avatar.
   def add_def_avatar
     unless avatar.attached?
       avatar.attach(
@@ -70,6 +76,7 @@ class User < ApplicationRecord
     end
   end
 
+  #Custom validation to check for image size. Image type is checked automatically by ActiveRecord.
   def acceptable_image
     return unless avatar.attached?
     unless avatar.blob.byte_size <= 3.megabyte
