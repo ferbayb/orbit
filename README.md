@@ -451,13 +451,13 @@ You can find the public repo of the latest available build on Heroku at:
 
   Each controller handles how the application should respond in the event of a certain request being made. For example, Within the **task** controller, we can define what happens when a user clicks on a **create task** button (from the view). 
 
-  ![TaskNewSnippet](app/assets/images/screenshots/tasknewsnippet.png)
+  ![TaskNewSnippet](app/assets/images/screenshots/TaskNewSnippet.png)
 
   The application uses the above code to generate the "new" template in our views and waits for a response.
 
   In the case of Orbit, we wait for a "create" action to be triggered in the view, which will then be handled by our controller and sent over to the model "task.rb"
 
-  ![TaskCreateSnippet](app/assets/images/screenshots/taskcreatesnippet.png)
+  ![TaskCreateSnippet](app/assets/images/screenshots/TaskCreateSnippet.png)
 
   
 
@@ -716,7 +716,7 @@ All git commits have descriptive comments and have been added to a gitlog.txt fi
 
 You can see my live trello board application [here](https://trello.com/b/I7RYI7yc/rails-marketplace-application).
 
-![Trello](app/assets/images/screenshots/trello.png)
+![Trello](app/assets/images/screenshots/Trello.png)
 
 I used trello to seperate my tasks like a checklist, each card contains information regarding the requirements of the application as set out by my educators with further information inside. I used dates and labels to categorise tasks and put them in larger categories such as slide deck, documentation and application development.
 
