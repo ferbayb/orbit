@@ -10,8 +10,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
   port: 2525,
   address: 'smtp.elasticemail.com',
-  user_name: ' <%= Rails.application.credentials.dig(:smtp, :username) ',
-  password: ' <%= Rails.application.credentials.dig(:smtp, :password) %> ',
+  user_name: ENV['SMTP_USERNAME'],
+  password: ENV['SMTP_PASSWORD'],
   authentication: :plain,
   enable_starttls_auto: true
   }
